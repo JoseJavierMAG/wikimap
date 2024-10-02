@@ -1,9 +1,14 @@
 import requests
-import mysql.connector
+#import mysql.connector
+
+def get_api_key():
+    with open('key.txt', 'r') as file:
+        key = file.read()
+        return key
 
 def get_lati_longi(address):
     url = 'https://maps.googleapis.com/maps/api/geocode/json'
-    api_key = "AIzaSyB_p-4861AKu51TKWKRELGObg4NxZQq1_Q"
+    api_key = get_api_key()
     params = {
 
         "address": address,
